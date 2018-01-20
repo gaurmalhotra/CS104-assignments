@@ -12,51 +12,36 @@ Problem 2
 (b) 1, 2 and 3 should be avoided.
 (c) 1. git add hw1q2b.cpp       
     2. git log -p -3
-    
-(d) git will commit all the files staged for commit
-
-(e) git clone git@github.com:UserName/respositoryName.git
-
-    in this case repositoryName may be CSCI104.
-    
-
-
+(d) git will commit all the files that are staged for commit.
+(e) git clone git@github.com:gauravma/csci104.git
 
 Problem 4:
-
-a) 
-
-Tracing the function calls:
-
-a = {1, 2, 3, 4, 5}, size = 5
-
+a) Follow code:
 funcA(a, 5)
-   funcB(a, 0, 4)//calling funcB(a, min, mid);
-      funcB(a, 0, 2)//calling funcB(a, min, mid);
-         funcB(a, 0, 1)//calling funcB(a, min, mid);
-            funcB(a, 0, 0)//calling funcB(a, min, mid);
-            print 1 //printing index 0//calling funcB(a, mid+1, max);
-         funcB(a, 1, 1)//calling funcB(a, mid+1, max);
-         print 2//printing index 1
-      funcB(a, 2, 2)//calling funcB(a, mid+1, max);
-      print 3//printing index 2
-   funcB(a, 3, 4)//calling funcB(a, mid+1, max);
-      funcB(a, 3, 3)//calling funcB(a, min, mid);
-      print 4//printing index 3
-   funcB(a, 4, 4)//calling funcB(a, mid+1, max);
-   print 5//printing index 4
-   
-This tracing is aligned in such a way to make it easy to understand the
-recursive process of the functions.
+funcB(a, 0, 4);
+funcB(a, 0, 2);
+funcB(a, 0, 1);
+funcB(a, 0, 0);
+cout << 1;
+funcB(a, 1, 1);
+cout << 2;
+funcB(a, 2, 2);
+cout << 3;
+funcB(a, 3, 4);
+funcB(a, 3, 3);
+cout << 4;
+funcB(a, 4, 4);
+cout << 5;
 
-b) funcB would fail to terminate when the value of min entered is greater
-than max as this would lead to funcB(a, min, mid) calling itself over and
-over again as mid would always have a value lower than min and the 'if'
-condition would never execute, leading to funcB(a, min, mid) to execute
-idefinitely.
+Why this happens: lines 21 through 24 and line 31 are all results of the function call 
+line funcB(a, min, mid), while lines 26, 28, 30, and 33 are all results of the 
+function call line funcB(a, mid+1, max).
 
-c) Assuming min is less than max, the function funcB(a, min, max), displays
-elements of the array in order of its indexes from the min to the max. This happens because each
-recursive calls allow the array to be split further into two parts.
+b) funcB fails to terminate when the value of min is greater
+than max, resulting in infinite calls without entering the 
+if statement (or the base case).In all other cases, it will eventually hit
+the base case because min will = max.
 
-As we can see from the function tracing of part a)
+c) funcB(a, min, max), outputs the array elements in index order from the min value
+to the max value. This happens when min <= max as the function recurses into two 
+halves each time. If min > max, the it recurses infinite times.
