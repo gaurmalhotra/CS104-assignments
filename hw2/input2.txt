@@ -1,4 +1,0 @@
-ADD 0 Aaron
-ADD 1 Sandra
-ADD 2 Vimanyu
-ACT 1

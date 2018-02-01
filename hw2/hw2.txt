@@ -9,10 +9,10 @@ untracked.
 on markdown". README.md then has the line "Markdown is too easy" appended to
 it, while fun_problem.txt has "So far, so good" appended to it, therefore 
 they are both modified.
-e) README.md is modified and staged, while fun_problem.txt is unmodified.
+(e) README.md is modified and staged, while fun_problem.txt is unmodified.
 Since it has not been modified in any way, its contents remain as "So far, so 
 good".
-f) README.md's status is modified because "Fancy git move" is
+(f) README.md's status is modified because "Fancy git move" is
  appended to it.
 
 Problem 3
@@ -38,15 +38,17 @@ Returned output: 5,4,3,2,1.
 
 This is the inputted linked list, reversed.
 
-funcA allows one parameter, a pointer to the linked list "in". It then sets the input pointer (in) to a node* r, which goes through a while loop to eventually point to the tail of the linked list.
+funcA allows one parameter, a pointer to the linked list "in". It then sets 
+the input pointer (in) to a node* r, which goes through a while loop to 
+eventually point to the tail of the linked list.
 
 funcB continuously recurses until the end of the linked list. Once it does,
 it goes back up from the end of the list to the start while it sets
 each node's "next" equal to "in", which is the previous node. The final 
-reversal then results in the first element having its next pointer set to "nullptr."
-This ends the list as the "final" value is now set to null. Node r from funcA 
-is the new head node (actually the final one) which is returned to point to the 
-newly flipped linked list.
+reversal then results in the first element having its next pointer set 
+to "nullptr." This ends the list as the "final" value is now set to null. 
+Node r from funcA is the new head node (actually the final one) which is 
+returned to point to the newly flipped linked list.
 
-funcB essentially flips all pointers between nodes and reverses the individual nodes;
-funcA simply switches the head and tail pointers.
+funcB essentially flips all pointers between nodes and reverses the individual 
+nodes; funcA simply switches the head and tail pointers.
