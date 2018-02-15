@@ -1,0 +1,30 @@
+Problem 2
+a) Θ(n²) runtime.
+The function provided uses nested for loops. The outer loop goes from 0 to n while the two inner for loops will also run and collectively travel from 0 to n, therefore causing the code to go from 0 to n inside a for loop that also has n runtime. According to this, we know to multiply the two runtimes n * n and thus get our result of Θ(n²).
+
+b) Θ(n²) runtime.
+This is a recursive function that runs n times, each time it recursively calls the function until n-n happens, giving us the base case of 0. Therefore, it runs n times and calls n times making the runtime n * n = Θ(n²).
+
+c) Θ(n) runtime.
+Here, we alternate between enqueue and, when swap is false, we dequeue i. This means the function calls it 2n times (the second for loop is called every time after the first), which for growth purposes we simply note as Θ(n). 
+
+d) Θ(n³) runtime.
+The first for loop has a Θ(n) runtime. The second for loop has the same runtime, running from 0 to n. In the worst case, the while loop will continue to loop n times as well until "curr" no longer evaluates to true; the for loop nested inside the if statement will also have a runtime of n, and so when it enters the if statement (which is the worst case) the runtime is n*n*n = Θ(n³).
+
+
+Problem 3
+a) Θ(n²) runtime.
+bar has a runtime of Θ(n²) while foo has a runtime of Θ(log n). When we first call foo it increments n to 1, allowing us to call bar the second time, which makes max 2 and continues this routine with worst case of Θ(n²).
+
+b) Θ(n) runtime.
+The amortized runtime of this code will be Θ(n), as bar and foo are called alternatively with each function having runtimes of Θ(n²) and Θ(log n), respectively. Thus, when dividing by the number of times called, the amortized runtime comes out to be the average of the two or Θ(n).
+
+c) Θ(nlogn) runtime.
+Here, the code has an amortized runtime of Θ(nlogn). The worst case, or bar, has a runtime of Θ(n²), but after several iterations a runtime of n² * nlogn divided by the number of calls results in a amortized runtime staying with the better case of Θ(nlogn).
+
+d)Θ(n²) runtime.
+Worst-case sequence of calls is as follows:
+somefunc calls foo() (runtime Θ(logn)), somefunc then calls bar() (runtime Θ(n²)),
+and then anotherfunc() calls bar() (runtime Θ(n²)).
+
+The amortized runtime is thus (nlogn + n*n²)/n = n².
