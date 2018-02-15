@@ -6,6 +6,47 @@
 #include <cstdlib>
 
 using namespace std;
+bool check_empty (string str, stack<string> mystack) {
+  stringstream exp(str);
+  char a;
+  int count = 0, parencount = 0;
+  while (exp >> a){
+    if (!isalpha(a)){
+      if (a == '+') {
+        string s(1,a);
+        mystack.push(s);
+        count++;
+      }
+
+      else if (a == '-') { 
+        string s(1,a);
+        mystack.push(s);
+        count++;
+      }
+
+      if (a == '(') {
+        string s(1,a);
+        mystack.push(s);
+        parencount++;
+      }
+
+      else if (a == ')'){
+        if (mystack. size() == 0 || mystack.top() == "("){
+          cout << "Malformed, unused paren" << endl;
+          return false;
+        }
+      }
+
+    }
+  }
+
+  if (parencount == 0 && count > 0){
+    cout << "Malformed, needs paren" << endl;
+    return false;
+  }
+
+  return true;
+}
 
 bool check_valid(string str, stack<string> &mystack) {
   stringstream exp(str);
@@ -26,8 +67,8 @@ bool check_valid(string str, stack<string> &mystack) {
         exp >> a;
         while (isalpha(a))
           exp >> a;
-        if (a == '+'){
-          cout << "Malformed, mixed operators" << endl;
+        if (a == '+' || a == '-'){
+          cout << "Malformed, mixed operators or two negatives" << endl;
           return false;
         }
       }
@@ -106,27 +147,6 @@ string q = t;
     mystack.pop();
     s = mystack.top();
     
-    /*if (s == "<" || s == ">") {
-      while (s == "<" || s == ">"){
-        if (s == "<")
-          ++back;
-        else
-          ++front;
-        mystack.pop();
-        s = mystack.top(); 
-      }
-
-      if (back > 0){
-        for (int i = 0; i < back; i++)
-          s.pop_back();
-      }
-
-      if (front > 0){
-        for (int i = 0; i < front; i++)
-          s.erase(0,1);
-      }
-    }*/
-
     if (s == "+"){
       mystack.pop();
       s = mystack.top();
@@ -146,8 +166,14 @@ string q = t;
         return -1;
       }
       else {
-        if (s.find(t,0) != string::npos)
+        if (s.find(t,0) != string::npos){
           q = s.erase(s.find(t,0), q.length());
+          if (q.length() == 0){
+            cout << "Malformed, removed entire word" << endl;
+            return -1;
+          }
+
+        }
         else
           q = s;
       }
@@ -198,11 +224,15 @@ int main(int argc, char* argv[])
     getline(input, str);
 
     if (str.length() == 0){
-      cout << "Empty string" << endl;
+      cout << "Malformed" << endl;
       continue;
     }
 
     stringstream exp(str);
+    bool empty = check_empty(str, mystack);
+    if (!empty)
+      continue;
+
     bool valid = check_valid(str, mystack);
     if (!valid)
       continue;
