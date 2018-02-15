@@ -1,30 +1,29 @@
 Problem 2
-a) theta(n²) runtime.
-The function provided uses nested for loops. The outer loop goes from 0 to n while the two inner for loops will also run and collectively travel from 0 to n, therefore causing the code to go from 0 to n inside a for loop that also has n runtime. According to this, we know to multiply the two runtimes n * n and thus get our result of Θ(n²).
+a) theta(n^2) runtime.
+The function provided uses nested for loops. The outer loop goes from 0 to n while the two inner for loops will also run and collectively travel from 0 to n, therefore causing the code to go from 0 to n inside a for loop that also has n runtime. According to this, we know to multiply the two runtimes n * n and thus get our result of theta(n^2).
 
-b) theta(n²) runtime.
-This is a recursive function that runs n times, each time it recursively calls the function until n-n happens, giving us the base case of 0. Therefore, it runs n times and calls n times making the runtime n * n = Θ(n²).
+b) theta(n^2) runtime.
+This is a recursive function that runs n times, each time it recursively calls the function until n-n happens, giving us the base case of 0. Therefore, it runs n times and calls n times making the runtime n * n = theta(n^2).
 
 c) theta(n) runtime.
-Here, we alternate between enqueue and, when swap is false, we dequeue i. This means the function calls it 2n times (the second for loop is called every time after the first), which for growth purposes we simply note as Θ(n). 
+Here, we alternate between enqueue and, when swap is false, we dequeue i. This means the function calls it 2n times (the second for loop is called every time after the first), which for growth purposes we simply note as theta(n). 
 
-d) theta(n³) runtime.
-The first for loop has a Θ(n) runtime. The second for loop has the same runtime, running from 0 to n. In the worst case, the while loop will continue to loop n times as well until "curr" no longer evaluates to true; the for loop nested inside the if statement will also have a runtime of n, and so when it enters the if statement (which is the worst case) the runtime is n*n*n = Θ(n³).
+d) theta(n^3) runtime.
+The first for loop has a theta(n) runtime. The second for loop has the same runtime, running from 0 to n. In the worst case, the while loop will continue to loop n times as well until "curr" no longer evaluates to true; the for loop nested inside the if statement will also have a runtime of n, and so when it enters the if statement (which is the worst case) the runtime is n*n*n = theta(n^3).
 
 
 Problem 3
-a) theta(n²) runtime.
-bar has a runtime of Θ(n²) while foo has a runtime of Θ(log n). When we first call foo it increments n to 1, allowing us to call bar the second time, which makes max 2 and continues this routine with worst case of Θ(n²).
+a) theta(n^2) runtime.
+bar has a runtime of Θ(n²) while foo has a runtime of theta(log n). When we first call foo it increments n to 1, allowing us to call bar the second time, which makes max 2 and continues this routine with worst case of theta(n^2).
 
 b) theta(n) runtime.
-The amortized runtime of this code will be Θ(n), as bar and foo are called alternatively with each function having runtimes of Θ(n²) and Θ(log n), respectively. Thus, when dividing by the number of times called, the amortized runtime comes out to be the average of the two or Θ(n).
+The amortized runtime of this code will be theta(n), as bar and foo are called alternatively with each function having runtimes of theta(n^2) and theta(log n), respectively. Thus, when dividing by the number of times called, the amortized runtime comes out to be the average of the two or theta(n).
 
 c) theta(nlogn) runtime.
-Here, the code has an amortized runtime of Θ(nlogn). The worst case, or bar, has a runtime of Θ(n²), but after several iterations a runtime of n² * nlogn divided by the number of calls results in a amortized runtime staying with the better case of Θ(nlogn).
+Here, the code has an amortized runtime of theta(nlogn). The worst case, or bar, has a runtime of theta(n^2), but after several iterations a runtime of n^2 * nlogn divided by the number of calls results in a amortized runtime staying with the better case of theta(nlogn).
 
-d) theta(n²) runtime.
+d) theta(n^2) runtime.
 Worst-case sequence of calls is as follows:
-somefunc calls foo() (runtime Θ(logn)), somefunc then calls bar() (runtime Θ(n²)),
-and then anotherfunc() calls bar() (runtime Θ(n²)).
+somefunc calls foo() (runtime theta(logn)), somefunc then calls bar() (runtime theta(n^2)),	and then anotherfunc() calls bar() (runtime theta(n^2)).
 
-The amortized runtime is thus (nlogn + n*n²)/n = n².
+The amortized runtime is thus (nlogn + n*n^2)/n = n^2.
