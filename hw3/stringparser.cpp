@@ -32,7 +32,6 @@ bool check_empty (string str, stack<string> mystack) {
 
       else if (a == ')'){
         if (mystack. size() == 0 || mystack.top() == "("){
-          cout << "Malformed, unused paren" << endl;
           return false;
         }
       }
@@ -41,7 +40,6 @@ bool check_empty (string str, stack<string> mystack) {
   }
 
   if (parencount == 0 && count > 0){
-    cout << "Malformed, needs paren" << endl;
     return false;
   }
 
@@ -51,6 +49,7 @@ bool check_empty (string str, stack<string> mystack) {
 bool check_valid(string str, stack<string> &mystack) {
   stringstream exp(str);
   char a;
+  int opencount = 0, closecount = 0;
   while (exp >> a){
     if (!isalpha(a)){
       if (a == '+') {
@@ -58,7 +57,6 @@ bool check_valid(string str, stack<string> &mystack) {
         while (isalpha(a))
           exp >> a;
         if (a == '-'){
-          cout << "Malformed, mixed operators" << endl;
           return false;
         }
       }
@@ -68,7 +66,6 @@ bool check_valid(string str, stack<string> &mystack) {
         while (isalpha(a))
           exp >> a;
         if (a == '+' || a == '-'){
-          cout << "Malformed, mixed operators or two negatives" << endl;
           return false;
         }
       }
@@ -76,16 +73,19 @@ bool check_valid(string str, stack<string> &mystack) {
       if (a == '(') {
         string s(1,a);
         mystack.push(s);
+        opencount++;
       }
 
-      else if (a == ')')
-        mystack.pop();
+      else if (a == ')'){
+        if(mystack.size() > 0)
+          mystack.pop();
+        closecount++;
+      }
 
     }
   }
 
-  if (!mystack.empty()){
-    cout << "Malformed, parentheses dont match" << endl;
+  if (closecount > opencount || !mystack.empty()){
     return false;
   }
 
@@ -110,7 +110,6 @@ int make_stack(stringstream& exp, stack<string> &mystack){
           mystack.pop();
         }   
       }
-      //cout << s;
       mystack.push(s);
     }
 
@@ -126,7 +125,6 @@ int make_stack(stringstream& exp, stack<string> &mystack){
       break;
 
     else if (!isspace(a)){
-      cout << "Malformed, nonexpression chars" << endl;
       return -1;
     }
   }
@@ -137,7 +135,6 @@ int operate(stack<string> &mystack){
   string t = mystack.top();
 
   if (t == "(" || t == "+" || t == "-" || t == "<" || t == ">"){
-      cout << "Malformed, operator immediately before parentheses" << endl;
       return -1;
   }
 
@@ -151,7 +148,6 @@ string q = t;
       mystack.pop();
       s = mystack.top();
       if (s == "(" || s == "+" || s == "-" || s == "<" || s == ">"){
-        cout << "Malformed, operator immediately before parentheses" << endl;
         return -1;
       }
       else
@@ -162,14 +158,12 @@ string q = t;
       mystack.pop();
       s = mystack.top();
       if (s == "(" || s == "+" || s == "-" || s == "<" || s == ">"){
-        cout << "Malformed, operator immediately before parentheses" << endl;
         return -1;
       }
       else {
         if (s.find(t,0) != string::npos){
           q = s.erase(s.find(t,0), q.length());
           if (q.length() == 0){
-            cout << "Malformed, removed entire word" << endl;
             return -1;
           }
 
@@ -224,37 +218,47 @@ int main(int argc, char* argv[])
     getline(input, str);
 
     if (str.length() == 0){
-      cout << "Malformed" << endl;
+      output << "Malformed" << endl;
       continue;
     }
 
     stringstream exp(str);
     bool empty = check_empty(str, mystack);
-    if (!empty)
+    if (!empty){
+      output << "Malformed" << endl;
       continue;
+    }
 
     bool valid = check_valid(str, mystack);
-    if (!valid)
+    if (!valid){
+      output << "Malformed" << endl;
       continue;
+    }
 
     int made = make_stack(exp, mystack);
     if(made == -2){
-      cout << mystack.top() << endl;
+      output << mystack.top() << endl;
       continue;
     }
     int form;
     while ((mystack.size() > 1) && valid == true && made != -1){
       form = operate(mystack);
 
-      if(form == -1)
+      if(form == -1){
+        output << "Malformed" << endl;
         break;
+      }
 
       made = make_stack(exp, mystack);
 
-      if(made == -1)
+      if(made == -1){
+        output << "Malformed" << endl;
         break;
+      }
     }
     if(mystack.size() == 1 && form != -1 && made != -1)
-      cout << mystack.top() << endl;
+      output << mystack.top() << endl;
+
   }
+  return 0;
 }
