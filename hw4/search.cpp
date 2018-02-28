@@ -198,12 +198,9 @@ void intersectWebpage(set<string> &words, map<string, Webpage*> &nameToWeb, map<
 	for (a = words.begin(); a != words.end(); ++a){
 		set<Webpage*> webSet;
 		for (it = nameToWeb.begin(); it != nameToWeb.end(); ++it){
-			int contentsize = (it->second)->content_size();
-			for (int i = 0; i < contentsize; ++i){
-				if((it->second)->get_content()[i] == *a){
+			if ((it->second)->get_content().find(*a) != (it->second)->get_content().end()){
 					webSet.insert(it->second);
 					break;
-				}
 			}
 		}
 		wordToWeb.insert(pair <string, set<Webpage*> >(*a, webSet));
@@ -254,12 +251,9 @@ void unionWebpage(set<string> &words, map<string, Webpage*> &nameToWeb, map<stri
 	for (a = words.begin(); a != words.end(); ++a){
 		set<Webpage*> webSet;
 		for (it = nameToWeb.begin(); it != nameToWeb.end(); ++it){
-			int contentsize = (it->second)->content_size();
-			for (int i = 0; i < contentsize; ++i){
-				if((it->second)->get_content()[i] == *a){ 
-					webSet.insert(it->second);
+			if ((it->second)->get_content().find(*a) != (it->second)->get_content().end()){ 
+				webSet.insert(it->second);
 					break;
-				}
 			}
 		}
 		wordToWeb.insert(pair <string, set<Webpage*> >(*a, webSet));

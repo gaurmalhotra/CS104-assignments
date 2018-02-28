@@ -7,14 +7,14 @@ Webpage::Webpage(){
 }
 
 void Webpage::content_push(string str){
-	content.push_back(str); 
+	content.insert(str); 
 }
 
 int Webpage::content_size(){
 	return content.size(); 
 }
 
-vector<string> Webpage::get_content(){
+set<string>& Webpage::get_content(){
 	return content; 
 }
 
@@ -26,7 +26,7 @@ int Webpage::incoming_size(){
 	return incomingLinks.size(); 
 }
 
-set<string> Webpage::get_incoming(){
+set<string>& Webpage::get_incoming(){
 	return incomingLinks; 
 }
 
@@ -38,6 +38,6 @@ int Webpage::outgoing_size(){
 	return outgoingLinks.size(); 
 }
 
-set<string> Webpage::get_outgoing(){
+set<string>& Webpage::get_outgoing(){
 	return outgoingLinks; 
 }
