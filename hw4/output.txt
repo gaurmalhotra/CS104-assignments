@@ -1,0 +1,234 @@
+looking up i
+enter
+0
+line ended
+looking up love
+enter
+enter
+0
+line ended
+looking up computer
+enter
+enter
+enter
+0
+line ended
+looking up science
+enter
+enter
+enter
+enter
+0
+line ended
+looking up and
+enter
+enter
+enter
+enter
+enter
+0
+line ended
+looking up vim
+insertion happened
+enter
+enter
+enter
+enter
+enter
+enter
+enter2
+1
+stress/lorem.txt
+line ended
+looking up id
+insertion happened
+enter
+enter
+enter
+enter
+enter2
+enter
+enter
+enter
+enter2
+1
+stress/lorem.txt
+line ended
+looking up solet
+insertion happened
+enter
+enter
+enter
+enter
+enter2
+enter
+enter
+enter
+enter2
+enter
+enter2
+1
+stress/lorem.txt
+line ended
+looking up computer
+looking up potato
+looking up science
+0
+looking up ipsum
+insertion happened
+looking up lorem
+insertion happened
+enter
+enter
+enter
+enter
+enter2
+enter
+enter2
+enter
+enter2
+enter
+enter
+enter
+enter
+enter2
+enter
+enter2
+1
+stress/lorem.txt
+line ended
+looking up cum
+insertion happened
+looking up ex
+insertion happened
+looking up principes
+insertion happened
+looking up pro
+insertion happened
+looking up vim
+insertion happened
+0
+looking up fjjkd
+looking up jfdkfjd
+looking up jreifjdsk
+0
+looking up a
+looking up alphabet
+looking up bug
+looking up code
+looking up developer
+looking up feature
+looking up its
+looking up not
+looking up soup
+looking up source
+0
+looking up a
+looking up alphabet
+looking up bug
+looking up code
+looking up developer
+looking up feature
+looking up its
+looking up not
+looking up soup
+looking up source
+enter
+enter
+enter
+enter
+enter
+enter
+enter
+enter2
+enter
+enter
+enter2
+enter
+enter
+enter
+enter
+enter2
+enter
+enter2
+enter
+enter
+enter
+enter
+enter2
+enter
+enter
+enter
+enter
+enter2
+enter
+enter2
+enter
+enter
+enter2
+enter
+enter
+enter
+enter2
+1
+stress/lorem.txt
+line ended
+looking up deviation
+looking up fun
+looking up is
+looking up mean
+looking up median
+looking up standard
+looking up statistics
+0
+0
+0
+looking up jifoqejd
+enter
+enter
+enter
+enter
+enter
+enter
+enter
+enter2
+enter
+enter
+enter
+enter2
+enter
+enter
+enter
+enter
+enter
+enter2
+enter
+enter2
+enter
+enter
+enter
+enter
+enter
+enter
+enter2
+enter
+enter
+enter
+enter
+enter
+enter
+enter2
+enter
+enter2
+enter
+enter
+enter2
+enter
+enter
+enter
+enter
+enter
+enter2
+1
+stress/lorem.txt
+line ended
