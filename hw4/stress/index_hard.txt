@@ -1,3 +1,0 @@
-stress/lorem.txt
-stress/dictionary.txt
-stress/definitions.txt
