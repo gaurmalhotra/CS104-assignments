@@ -196,13 +196,11 @@ void intersectWebpage(set<string> &words, map<string, Webpage*> &nameToWeb, map<
 	map<string, Webpage*>::iterator it;
 	set<string>::iterator a;
 	for (a = words.begin(); a != words.end(); ++a){
-		output << "looking up " << *a << endl;
 		set<Webpage*> webSet;
 		for (it = nameToWeb.begin(); it != nameToWeb.end(); ++it){
 			int contentsize = (it->second)->content_size();
 			for (int i = 0; i < contentsize; ++i){
 				if((it->second)->get_content()[i] == *a){
-					output << "insertion happened" << endl;
 					webSet.insert(it->second);
 					break;
 				}
@@ -254,13 +252,11 @@ void unionWebpage(set<string> &words, map<string, Webpage*> &nameToWeb, map<stri
 	map<string, Webpage*>::iterator it;
 	set<string>::iterator a;
 	for (a = words.begin(); a != words.end(); ++a){
-		output << "looking up " << *a << endl;
 		set<Webpage*> webSet;
 		for (it = nameToWeb.begin(); it != nameToWeb.end(); ++it){
 			int contentsize = (it->second)->content_size();
 			for (int i = 0; i < contentsize; ++i){
-				if((it->second)->get_content()[i] == *a){
-					output << "insertion happened" << endl; 
+				if((it->second)->get_content()[i] == *a){ 
 					webSet.insert(it->second);
 					break;
 				}
@@ -274,9 +270,7 @@ void unionWebpage(set<string> &words, map<string, Webpage*> &nameToWeb, map<stri
 	finalSet.clear();
 
 	for (b = wordToWeb.begin(); b != wordToWeb.end(); ++b){
-		output << "enter" << endl;
 		for (c = (b->second).begin(); c != (b->second).end(); ++c){
-			output << "enter2" << endl;
 			finalSet.insert(*c);
 		}
 	}
@@ -288,7 +282,6 @@ void unionWebpage(set<string> &words, map<string, Webpage*> &nameToWeb, map<stri
 				output << it->first << endl;
 		}
 	}
-	output << "line ended" << endl;
 	return;
 }
 

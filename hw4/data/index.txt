@@ -1,0 +1,2 @@
+/home/cs104/cs104/hw-gauravma/hw4/data/webpage1.txt
+/home/cs104/cs104/hw-gauravma/hw4/data/webpage2.txt
